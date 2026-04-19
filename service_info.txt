@@ -1,0 +1,19 @@
+Atlan Service -
+
+1. Start the Service - sudo systemctl start atlan
+
+2. Stop the Service - sudo systemctl stop atlan
+
+3. Restart the Service - sudo systemctl restart atlan
+
+4. Reload Service - sudo systemctl daemon-reload
+
+5. Enable Service - sudo systemctl enable atlan
+
+6. Disable Service - sudo systemctl disable atlan
+
+7. Live Logs - sudo journalctl -u atlan -f
+
+8. View Service Logs - sudo journalctl -u atlan -n 100
+
+npm install -g serve

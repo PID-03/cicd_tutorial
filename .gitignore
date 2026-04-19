@@ -1,0 +1,23 @@
+# Virtual Environment
+atlan_venv/
+venv/
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+__pycache__/
+*.pyc
+logs/
+*.log

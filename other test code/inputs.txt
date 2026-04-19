@@ -1,0 +1,48 @@
+project_info table
+
+project_name
+date
+designed_by
+project_address
+
+
+stormwater_sizing_calculation table columns
+
+annual_exceedence_probability (float)
+rainfall_intensity_increase_allowance (Float)
+maximum_storm_duration (INT)
+roof_area (float)
+roof_coefficient (float)
+carpark_area  (float)
+carpark_coefficient  (float)
+landscaping_area  (float)
+landscaping_coefficient  (float)
+soil_permeability  (float)
+detention_tank_discharge_allowance  (float)
+roof_catchment_area  (float)
+carpark_catchment_area  (float)
+landscaping_catchment_area  (float)
+precast_soakwells(json)
+stormwater_pipes(json)
+other_additional_volume  (float)
+constraint (length/width) 
+length/width_value  (float)
+approx_net_volumn_depth  (float)
+tank_width  (float)
+tank_depth  (float)
+bluemetal_base_height  (float)
+bluemetal_base_factor  (float)
+include_water_half_height_peripheral(true/false) (bool)
+
+
+ecocube_cost_calculation inputs
+
+Available Depth to invert (mm)
+Max Layers Possible-(calculate based on available depth)
+Layers in this System ( = to max layers possible)
+Include Liner? - yes/no
+Target Storage Volume(m3)
+Constraining Factor - width/length
+Constraining Dimension (m)
+Number of Outlets ( default 0)
+Number of Inlets  ( default 0)
