@@ -1,5 +1,6 @@
 # Virtual Environment
 atlan_venv/
+other test code/
 venv/
 .env
 
@@ -10,9 +11,8 @@ __pycache__/
 *.pyd
 
 # Logs
-logs/
-*.log
-
+logs/app.log
+app.log
 # OS files
 .DS_Store
 Thumbs.db
