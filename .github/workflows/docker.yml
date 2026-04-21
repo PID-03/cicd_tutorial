@@ -38,9 +38,9 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
 
         with:
-          host: ${{ secrets.ATLAN_HOST }}
-          username: ${{ secrets.ATLAN_USERNAME }}
-          key: ${{ secrets.ATLAN_SSH_KEY }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
 
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/atlan-demo:latest
