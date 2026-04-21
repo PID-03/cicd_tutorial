@@ -1,0 +1,53 @@
+name: CI CD deploy atlan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/atlan-demo:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/atlan-demo:latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Deploy to Atlan
+        uses: appleboy/ssh-action@v1.0.0
+
+        with:
+          host: ${{ secrets.ATLAN_HOST }}
+          username: ${{ secrets.ATLAN_USERNAME }}
+          key: ${{ secrets.ATLAN_SSH_KEY }}
+
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/atlan-demo:latest
+
+            docker stop atlan-demo || true
+            docker rm atlan-demo || true
+
+            docker compose down || true
+            docker compose pull
+            docker compose up -d
