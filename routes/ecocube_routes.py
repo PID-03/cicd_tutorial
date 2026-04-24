@@ -393,6 +393,8 @@ def create_ecocube(project_id):
                 raise ValueError(response)
 
         logger.info(f"Ecocube created | project_id={project_id}")
+
+        
         return jsonify({"message": "Ecocube input created successfully"}), 201
 
     except ValueError as ve:
